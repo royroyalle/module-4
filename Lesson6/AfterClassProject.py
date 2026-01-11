@@ -1,12 +1,14 @@
 import random
-random1 = ["a", "b", "c"]
-random2 = ["A", "C", "B"]
-random1.extend(random2)
-empty = []
-for i in range(10):
-    random4 = random.choice(random1)
-    empty = list(random4)
-    empty2 = list(empty)
-    i = i + 1
-    print(empty2)
-
+def generate_password(length=12):
+    low = "abcdefghijklmnopqrstuvwxyz"
+    up = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    num = "0123456789"
+    a = low + up + num
+    password2 = []
+    for _ in range(length):
+        ab = random.choice(a)
+        password2.append(ab) 
+    random.shuffle(password2)
+    password = "".join(password2)
+    return password
+print("Generated Password:", generate_password(16))
